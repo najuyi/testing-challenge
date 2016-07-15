@@ -8,7 +8,18 @@ myApp.controller('TestCtrl', ['$scope', 'moment', function ($scope, moment) {
     };
     
     $scope.checkValidity = function(){
-        var date = Date.parse($scope.birthDate);
+        var valid = true;
+        var now = moment();
+        var input = Date.parse($scope.birthDate);
+        //input = moment(input).format('MM/DD/YYYY');
+        var dateDiff = moment(now).diff(moment(input), 'y');
+        if (dateDiff < 13){
+            valid = false;
+
+        }
+        else{
+            valid = true;
+        }
         
     }
 
