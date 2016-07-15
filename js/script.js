@@ -1,2 +1,6 @@
 'use strict';
 var myApp = angular.module('TestApp', []);
+
+myApp.controller('TestCtrl', ['$scope', function($scope) { 
+
+}]);
