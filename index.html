@@ -38,19 +38,25 @@
         <!-- First Name -->
         <div class="form-group">
             <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" class="form-control"></input>
+            <input type="text" id="firstName" name="firstName" placeholder="your first name" class="form-control"></input>
         </div>
 
         <!-- Last Name -->
         <div class="form-group">
             <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" class="form-control" required></input>
+
+            <input type="text" id="lastName" name="lastName" class="form-control"  required></input>
+
+            <input type="text" id="lastName" name="lastName" ng-model="lastname" placeholder="your last name" class="form-control" required></input>
+            <p class="help-block" ng-show="testForm.lastname.$invalid && testForm.lastname.$touched">We need to at least know your last name</p>
+
         </div>
 
         <!-- Birthdate -->
         <div class="form-group">
             <label for="birthDate">Birthdate:</label>
-            <input type="date" id="birthDate" name="birthDate" class="form-control" required></input>
+            <input type="text" id="birthDate" name="birthDate" class="form-control" ng-model="birthDate" required></input>
+
         </div>
 
         <!-- Password -->
