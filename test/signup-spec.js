@@ -72,7 +72,7 @@ describe('button behavior', function() {
             //password
 
             //email
-            
+            element(by.id('email')).sendKeys('cat@dog.com');
             button.click();
             expect(alert.isPresent()).toEqual(true);
         })
@@ -123,4 +123,34 @@ describe('Password on matching', function () {
         expect(misMatch.isDisplayed()).toBe(false); 
     })
 
+});
+
+describe('Email on validation', function() {
+    browser.get('http://localhost:8080');
+    var invalid = element(by.id('email'));
+    var test = element(by.id('emailError'));
+    it('should display error if email is invalid', function() {
+        invalid.sendKeys('glorytoarstozyka');
+        expect(test.isPresent()).toBe(true);
+    })
+    it('should not display error if email is valid', function() {
+        invalid.sendKeys('cat@dog.com');
+        expect(test.isPresent()).toBe(false);
+    })
+});
+
+describe('Email on touch', function() {
+    browser.get('http://localhost:8080');
+    var invalid = element(by.id('email'));
+    var test = element(by.id('emailTouched'));
+    it('should display error if email is touched no input', function() {
+        invalid.sendKeys('email');
+        invalid.clear();
+        invalid.sendKeys('\t');
+        expect(test.isPresent()).toBe(true);
+    })
+    it('should not display error if email is touched with input', function() {
+        invalid.sendKeys('cat@dog.com');
+        expect(test.isPresent()).toBe(false);
+    })
 });

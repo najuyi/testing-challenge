@@ -39,7 +39,7 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder='your@email.com' class="form-control" ng-model="email" required></input>
             <p id='emailError' class='help-block' ng-if='!testForm.email.$valid && testForm.email.$dirty'>We need a valid email address to continue</p>
-            <p id='emailTouched' class='help-block' ng-if='testForm.email.$touched && !testForm.email.$dirty'>Email address required</p>
+            <p id='emailTouched' class='help-block' ng-if='testForm.email.$touched && testForm.email.$error.required'>Email address required</p>
         </div>
 
         <!-- First Name -->
