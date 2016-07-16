@@ -55,7 +55,9 @@
         <!-- Birthdate -->
         <div class="form-group">
             <label for="birthDate">Birthdate:</label>
-            <input type="text" id="birthDate" name="birthDate" class="form-control" ng-model="birthDate" placeholder="MM/DD/YYYY" required></input>
+            <input type="text" id="birthDate" name="birthDate" class="form-control" ng-model="birthDate" ng-change="checkValidity()" placeholder="MM/DD/YYYY" required></input>
+            <p class="help-block" id="bdayAge" ng-if="testForm.birthDate.$error.old">must be older than 13</p>  
+            <p class="help-block" id="bdayValid" ng-if="testForm.birthDate.$error.valid">Must be a valid date...</p>  
         </div>
 
         <!-- Password -->

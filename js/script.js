@@ -10,15 +10,25 @@ myApp.controller('TestCtrl', ['$scope', 'moment', function ($scope, moment) {
     $scope.checkValidity = function(){
         var valid = true;
         var now = moment();
+        var format = moment($scope.birthDate).isValid();
         var input = Date.parse($scope.birthDate);
-        //input = moment(input).format('MM/DD/YYYY');
         var dateDiff = moment(now).diff(moment(input), 'y');
         if (dateDiff < 13){
-            valid = false;
+            $scope.testForm.birthDate.$setValidity('old', false);
+          
+        }
+        else{
+            $scope.testForm.birthDate.$setValidity('old', true);
+          
+        }
+        if (format == false){
+            $scope.testForm.birthDate.$setValidity('valid', false);
+           
 
         }
         else{
-            valid = true;
+            $scope.testForm.birthDate.$setValidity('valid', true);
+        
         }
         
     }
