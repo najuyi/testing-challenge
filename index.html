@@ -65,14 +65,14 @@
         <div class="form-group">
             <label for="pw">Password:</label>
             <input id="pw" name="password" type="password" class="form-control" ng-model="pw" required></input>
-             <p class="help-block" ng-if="testForm.password.$error.required">Required</p>
+             <p id="pRequire" class="help-block" ng-if="testForm.password.$error.required">Required</p>
         </div>
 
         <!-- Confirm Password -->
         <div class="form-group">
             <label for="cpw">Confirm Password:</label>
             <input id="cpw" name="confirmPassword" type="password" class="form-control" ng-model="cpw" ng-change="passwordMatch()" required></input>
-            <p class="help-block" ng-if="testForm.confirmPassword.$error.required">Required</p>
+            <p id="cRequire" class="help-block" ng-if="testForm.confirmPassword.$error.required">Required</p>
             <p class="help-block" ng-if="testForm.confirmPassword.$error.match">Passwords must match</p>    
         </div>
 
