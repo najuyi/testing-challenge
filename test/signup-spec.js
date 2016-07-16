@@ -70,7 +70,8 @@ describe('button behavior', function() {
             //birthday
             element(by.model('birthDate')).sendKeys('1/1/1985');
             //password
-
+            element(by.id('pw')).sendKeys('1');
+            element(by.id('cpw')).sendKeys('1');
             //email
             element(by.id('email')).sendKeys('cat@dog.com');
 
