@@ -52,4 +52,18 @@ describe('Validations in form birthday', function(){
     });
     
     
-})
+});
+
+describe('Password Requirements on load', function(){
+    browser.get('http://localhost:8080');
+
+    it('should display password field is required on load', function(){
+        var pRequire = element(by.id('pRequire'));
+        expect(pRequire.isDisplayed()).toBe(true);
+    });
+
+    it('should display confirm field to be required', function(){
+        var cRequire = element(by.id('cRequire'));
+        expect(cRequire.isDisplayed()).toBe(true);
+    });
+});
