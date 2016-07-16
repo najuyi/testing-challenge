@@ -85,12 +85,12 @@ describe('Password Requirements on load', function () {
     browser.get('http://localhost:8080');
 
     it('should display password field is required on load', function () {
-        var pRequire = element(by.css('#pRequire'));
+        var pRequire = element(by.id('pRequire'));
         expect(pRequire.isDisplayed()).toBe(true);
     });
 
     it('should display confirm field to be required', function () {
-        var cRequire = element(by.css('#cRequire'));
+        var cRequire = element(by.id('cRequire'));
         expect(cRequire.isDisplayed()).toBe(true);
     });
 });
@@ -98,22 +98,23 @@ describe('Password Requirements on load', function () {
 describe('Password behavior on first entry', function () {
     browser.get('http://localhost:8080');
 
-    var pass = element(by.css('#pw'));
+    var pass = element(by.id('pw'));
     pass.sendKeys('word');
 
     it('should not display required for password field', function () {
-        var pRequire = element(by.css('#pRequire'));
+        var pRequire = element(by.id('pRequire'));
         expect(pRequire.isDisplayed()).toBe(false);
     });
 
     it('should display confirm password must match', function () {
-        var misMatch = element(by.css('#mis'));
+        var misMatch = element(by.id('mis'));
         expect(misMatch.isDisplayed()).toBe(true);
     });
 });
 
 describe('Password on matching', function () {
     browser.get('http://localhost:8080');
+    
     it('should not display any errors when both passwords match', function() {
         browser.get('http://localhost:8080');
         var passOne = element(by.id('pw'));
