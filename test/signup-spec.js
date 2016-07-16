@@ -86,12 +86,12 @@ describe('Password Requirements on load', function () {
 
     it('should display password field is required on load', function () {
         var pRequire = element(by.id('pRequire'));
-        expect(pRequire.isDisplayed()).toBe(true);
+        expect(pRequire.isPresent()).toBe(true);
     });
 
     it('should display confirm field to be required', function () {
         var cRequire = element(by.id('cRequire'));
-        expect(cRequire.isDisplayed()).toBe(true);
+        expect(cRequire.isPresent()).toBe(true);
     });
 });
 
@@ -103,12 +103,12 @@ describe('Password behavior on first entry', function () {
 
     it('should not display required for password field', function () {
         var pRequire = element(by.id('pRequire'));
-        expect(pRequire.isDisplayed()).toBe(false);
+        expect(pRequire.isPresent()).toBe(false);
     });
 
     it('should display confirm password must match', function () {
         var misMatch = element(by.id('mis'));
-        expect(misMatch.isDisplayed()).toBe(true);
+        expect(misMatch.isPresent()).toBe(true);
     });
 });
 
@@ -123,7 +123,7 @@ describe('Password on matching', function () {
         
         passOne.sendKeys('kidsister');
         passTwo.sendKeys('kidsister');
-        expect(misMatch.isDisplayed()).toBe(false); 
+        expect(misMatch.isPresent()).toBe(false); 
     })
 
 });
