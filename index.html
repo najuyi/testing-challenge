@@ -75,7 +75,7 @@
             <label for="cpw">Confirm Password:</label>
             <input id="cpw" name="confirmPassword" type="password" class="form-control" ng-model="cpw" ng-change="passwordMatch()" required></input>
             <p id="cRequire" class="help-block" ng-if="testForm.confirmPassword.$error.required">Required</p>
-            <p class="help-block" ng-if="testForm.confirmPassword.$error.match">Passwords must match</p>    
+            <p class="help-block" id="mis" ng-if="testForm.confirmPassword.$error.match">Passwords must match</p>    
         </div>
 
         <!-- Submit or Reset -->

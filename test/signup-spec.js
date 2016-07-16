@@ -68,11 +68,12 @@ describe('button behavior', function() {
             //name
             element(by.model('lastName')).sendKeys('name');
             //birthday
-
+            element(by.model('birthDate')).sendKeys('1/1/1985');
             //password
 
             //email
             element(by.id('email')).sendKeys('cat@dog.com');
+
             button.click();
             expect(alert.isPresent()).toEqual(true);
         })
@@ -83,12 +84,12 @@ describe('Password Requirements on load', function () {
     browser.get('http://localhost:8080');
 
     it('should display password field is required on load', function () {
-        var pRequire = element(by.id('pRequire'));
+        var pRequire = element(by.css('#pRequire'));
         expect(pRequire.isDisplayed()).toBe(true);
     });
 
     it('should display confirm field to be required', function () {
-        var cRequire = element(by.id('cRequire'));
+        var cRequire = element(by.css('#cRequire'));
         expect(cRequire.isDisplayed()).toBe(true);
     });
 });
@@ -96,16 +97,16 @@ describe('Password Requirements on load', function () {
 describe('Password behavior on first entry', function () {
     browser.get('http://localhost:8080');
 
-    var pass = element(by.id('pw'));
+    var pass = element(by.css('#pw'));
     pass.sendKeys('word');
 
     it('should not display required for password field', function () {
-        var pRequire = element(by.id('pRequire'));
+        var pRequire = element(by.css('#pRequire'));
         expect(pRequire.isDisplayed()).toBe(false);
     });
 
     it('should display confirm password must match', function () {
-        var misMatch = element(by.id('mis'));
+        var misMatch = element(by.css('#mis'));
         expect(misMatch.isDisplayed()).toBe(true);
     });
 });
