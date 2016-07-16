@@ -52,19 +52,32 @@ describe('Validations in form birthday', function () {
     });
 });
 
-describe('alert message when submit', function() {
+describe('button behavior', function() {
         browser.get('http://localhost:8080');
+        it('should disable button when form is invalid', function() {
+            var button = element(by.css('#submit'));
+            expect(button.isEnabled()).toEqual(false);
+        }) 
+
         it('should display alert message when submit', function() {
             var alert = element(by.className('alert alert-success'));
-            var button = element(by.buttonText('Sign-up'));
+            var button = element(by.css('#submit'));
             expect(alert.isPresent()).toEqual(false);
+            //Please input values that make the form valid here
+
+            //name
+            element(by.model('lastName')).sendKeys('name');
+            //birthday
+
+            //password
+
+            //email
+            
             button.click();
             expect(alert.isPresent()).toEqual(true);
         })
 })
 
-
-});
 
 describe('Password Requirements on load', function () {
     browser.get('http://localhost:8080');
