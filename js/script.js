@@ -11,9 +11,7 @@ myApp.controller('TestCtrl', ['$scope', 'moment', function ($scope, moment) {
         var valid = true;
         var now = moment();
         var format = moment($scope.birthDate).isValid();
-        console.log(format);
         var input = Date.parse($scope.birthDate);
-        //input = moment(input).format('MM/DD/YYYY');
         var dateDiff = moment(now).diff(moment(input), 'y');
         if (dateDiff < 13){
             $scope.testForm.birthDate.$setValidity('old', false);
