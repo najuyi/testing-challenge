@@ -4,15 +4,15 @@
 
 describe('name fields', function() {
     var lastname = element(by.model('lastName'));
-    var error_message = element(by.cssContainingText('.help-block', 'last name'));
+    var error_message = element(by.css('#nameError'));
     browser.get('http://localhost:8080');
 
     it('should show error message when name is invalid', function() {
         lastname.sendKeys('name');
         expect(error_message.isPresent()).toBe(false);
-        browser.pause();
 
         lastname.clear();
+        lastname.sendKeys('\t');
         expect(error_message.isPresent()).toBe(true);
     });
 });

@@ -49,7 +49,7 @@
         <div class="form-group">
             <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" name="lastName" ng-model="lastName" placeholder="your last name" class="form-control" required></input>
-            <p class="help-block" ng-if="testForm.lastName.$error.required && testForm.lastName.$touched">We need to at least know your last name</p>
+            <p id="nameError" class="help-block" ng-if="testForm.lastName.$error.required && testForm.lastName.$touched">We need to at least know your last name</p>
         </div>
 
         <!-- Birthdate -->
