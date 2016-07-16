@@ -1,7 +1,6 @@
 'use strict';
 
 //name test
-
 describe('name fields', function () {
     var lastname = element(by.model('lastName'));
     var error_message = element(by.css('#nameError'));
@@ -17,6 +16,7 @@ describe('name fields', function () {
     });
 });
 
+//birthday test
 describe('Validations in form birthday', function () {
     browser.get('http://127.0.0.1:8080/');
     it('should validate for age if under 13', function () {
@@ -52,6 +52,7 @@ describe('Validations in form birthday', function () {
     });
 });
 
+//button test
 describe('button behavior', function() {
         browser.get('http://localhost:8080');
         it('should disable button when form is invalid', function() {
@@ -80,7 +81,7 @@ describe('button behavior', function() {
         })
 })
 
-
+//password test
 describe('Password Requirements on load', function () {
     browser.get('http://localhost:8080');
 
@@ -128,6 +129,7 @@ describe('Password on matching', function () {
 
 });
 
+//email test
 describe('Email on validation', function() {
     browser.get('http://localhost:8080');
     var invalid = element(by.id('email'));

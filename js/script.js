@@ -33,13 +33,12 @@ myApp.controller('TestCtrl', ['$scope', 'moment', function ($scope, moment) {
         
     }
 
+    //show the message when the button is clicked
     $scope.message = "";
     $scope.isValid = false;
     $scope.checkValidity = function(){
         $scope.isValid = true;
-
         //when everything is valid
-        
     }
     
 
