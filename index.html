@@ -49,7 +49,7 @@
         <div class="form-group">
             <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" name="lastName" ng-model="lastName" placeholder="your last name" class="form-control" required></input>
-            <p class="help-block" ng-if="testForm.lastName.$error.required && testForm.lastName.$touched">We need to at least know your last name</p>
+            <p id="nameError" class="help-block" ng-if="testForm.lastName.$error.required && testForm.lastName.$touched">We need to at least know your last name</p>
         </div>
 
         <!-- Birthdate -->
@@ -71,6 +71,7 @@
         <div class="form-group">
             <label for="cpw">Confirm Password:</label>
             <input id="cpw" name="confirmPassword" type="password" class="form-control" ng-model="cpw" ng-change="passwordMatch()" required></input>
+            <p class="help-block" ng-if="testForm.confirmPassword.$error.required">Required</p>
             <p class="help-block" ng-if="testForm.confirmPassword.$error.match">Passwords must match</p>    
         </div>
 

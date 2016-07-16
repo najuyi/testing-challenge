@@ -3,19 +3,18 @@
 //name test
 
 describe('name fields', function() {
-    var lastname = element(by.model('lastname'));
-    var error_message = element(by.cssContainingText('.help-block', 'last name'));
-    //valid case
-    it('should not show error message when name is valid', function() {
+    var lastname = element(by.model('lastName'));
+    var error_message = element(by.css('#nameError'));
+    browser.get('http://localhost:8080');
 
-      
+    it('should show error message when name is invalid', function() {
+        lastname.sendKeys('name');
+        expect(error_message.isPresent()).toBe(false);
+
+        lastname.clear();
+        lastname.sendKeys('\t');
+        expect(error_message.isPresent()).toBe(true);
     });
-
-    //invalid case
-    it('should show error message when name is invalid and touched', function () {
-        browser.get('index.html');
-    })
-
 });
 
 describe('Validations in form birthday', function(){
