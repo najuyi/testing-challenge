@@ -50,6 +50,15 @@ describe('Validations in form birthday', function(){
         expect(age.isPresent()).toEqual(false);
         input.clear();
     });
-    
-    
+});
+
+describe('alert message when submit', function() {
+        browser.get('http://localhost:8080');
+        it('should display alert message when submit', function() {
+            var alert = element(by.className('alert alert-success'));
+            var button = element(by.buttonText('Sign-up'));
+            expect(alert.isPresent()).toEqual(false);
+            button.click();
+            expect(alert.isPresent()).toEqual(true);
+        })
 })
