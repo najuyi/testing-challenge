@@ -7,7 +7,7 @@ myApp.controller('TestCtrl', ['$scope', 'moment', function ($scope, moment) {
         $scope.testForm.confirmPassword.$setValidity("match", angular.equals($scope.pw, $scope.cpw));
     };
     
-    $scope.checkValidity = function(){
+    $scope.checkBday = function(){
         var valid = true;
         var now = moment();
         var format = moment($scope.birthDate).isValid();
@@ -32,6 +32,35 @@ myApp.controller('TestCtrl', ['$scope', 'moment', function ($scope, moment) {
         }
         
     }
+
+    $scope.checkValidity = function(){
+        var valid = true;
+        var now = moment();
+        var format = moment($scope.birthDate).isValid();
+        var input = Date.parse($scope.birthDate);
+        var dateDiff = moment(now).diff(moment(input), 'y');
+        if (dateDiff < 13){
+            $scope.testForm.submit.$setValidity('valid', false);
+          
+        }
+        else{
+            $scope.testForm.submit.$setValidity('valid', true);
+          
+        }
+        if (format == false){
+            $scope.testForm.submit.$setValidity('valid', false);
+           
+
+        }
+        else{
+            $scope.testForm.submit.$setValidity('valid', true);
+        
+        }
+        
+    }
+
+    
+
 
 
 }]);

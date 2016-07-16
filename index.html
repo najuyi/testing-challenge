@@ -55,7 +55,7 @@
         <!-- Birthdate -->
         <div class="form-group">
             <label for="birthDate">Birthdate:</label>
-            <input type="text" id="birthDate" name="birthDate" class="form-control" ng-model="birthDate" ng-change="checkValidity()" placeholder="MM/DD/YYYY" required></input>
+            <input type="text" id="birthDate" name="birthDate" class="form-control" ng-model="birthDate" ng-change="checkBday()" placeholder="MM/DD/YYYY" required></input>
             <p class="help-block" id="bdayAge" ng-if="testForm.birthDate.$error.old">must be older than 13</p>  
             <p class="help-block" id="bdayValid" ng-if="testForm.birthDate.$error.valid">Must be a valid date...</p>  
         </div>
@@ -78,6 +78,10 @@
         <div class="form-group">
             <button type="reset" class="btn btn-primary"> Reset</button>
             <button type="submit" class="btn btn-primary" ng-click="checkValidity()">Sign-up</button>
+            <p class="help-block" id="bdayValid" ng-if="testForm.submit.$error.valid">Invalid Form</p> 
+            <p class="help-block" id="bdayValid" ng-if="testForm.submit.$error.valid">Valid Form</p> 
+
+
         </div>
     </form>
 </body>
