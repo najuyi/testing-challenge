@@ -31,6 +31,7 @@
     <h1>Sign Up Now!</h1>
     <h3>Fill out the form to see if you have what it takes!</h3>
 
+    <div ng-if=isValid class="alert alert-success" role="alert">Congratulations! You got what it takes to join us.</div>
     <form name="testForm" novalidate>
 
         <!-- Email Field -->
@@ -80,10 +81,7 @@
         <!-- Submit or Reset -->
         <div class="form-group">
             <button type="reset" class="btn btn-primary"> Reset</button>
-            <button type="submit" class="btn btn-primary" ng-click="checkValidity()">Sign-up</button>
-            <p class="help-block" id="bdayValid" ng-if="testForm.submit.$error.valid">Invalid Form</p> 
-            <p class="help-block" id="bdayValid" ng-if="testForm.submit.$error.valid">Valid Form</p> 
-
+            <button id= "submit" type="submit" class="btn btn-primary" ng-disabled="testForm.$invalid" ng-click="checkValidity()">Sign-up</button>
 
         </div>
     </form>
